@@ -3,10 +3,12 @@ import Image from "next/image";
 import icon_create from "../../assets/create.svg";
 import icon_list from "../../assets/list.svg";
 import icon_time from "../../assets/time.svg";
+import Navbar from "@/components/Navbar";
 
 export default function dashboard() {
   return (
-    <div className="w-screen h-screen bg-[#EBEFF2] p-36 pt-16">
+    <div><Navbar/>
+    <div className="w-screen h-screen bg-[#EBEFF2] p-36 pt-24">
       <p className="text-[52px] text-[#293165] font-bold mb-28">Cargo Owner Dashboard</p>
       <div className="flex justify-center space-x-24">
         <div className="h-[550px] w-full bg-white items-center flex flex-col p-16 rounded-xl border border-gray-400 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-[1.005] hover:shadow-xl hover:shadow-slate-200 hover:bg-sky-50 duration-300 mb-5">
@@ -42,6 +44,7 @@ export default function dashboard() {
             </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,8 +1,10 @@
+import Navbar from "@/components/Navbar";
 import React from "react";
 
 export default function login() {
   return (
-    <div className="h-screen bg-white">
+    <div className="w-screen h-screen bg-[#EBEFF2]">
+      <Navbar />
       <div className="flex items-center justify-center py-56">
         <div className="max-w-md w-full space-y-8">
           <h2 className=" mb-auto text-center text-3xl font-extrabold text-[#293165]">
@@ -50,7 +52,7 @@ export default function login() {
                   <div class="md:w-1/3"></div>
                   <div class="md:w-2/3">
                     <button
-                      class="shadow bg-white hover:bg-[#293165] focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded"
+                      class="shadow bg-white hover:bg-blue-600 focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded"
                       type="button"
                     >
                       LOGIN
