@@ -4,7 +4,6 @@ import React from "react";
 export default function login() {
   return (
     <div className="w-screen h-screen bg-[#EBEFF2]">
-      <Navbar />
       <div className="flex items-center justify-center py-56">
         <div className="max-w-md w-full space-y-8">
           <h2 className=" mb-auto text-center text-3xl font-extrabold text-[#293165]">
