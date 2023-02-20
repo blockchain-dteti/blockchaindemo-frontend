@@ -4,17 +4,17 @@ const data = [
   {
     judul: "Pemberitahuan proses pengajuan DO disetujui",
     detail:
-      "Delivery Order yang anda ajukan telah disetujui dengan nomor DOXC6HYTEH silakan lihat pada menu list permohonan untuk mengetahuidetail",
+      "Delivery Order yang anda ajukan telah disetujui dengan nomor DOXC6HYTEH silakan lihat pada menu list permohonan untuk mengetahui detail",
   },
   {
     judul: "Pemberitahuan proses pengajuan DO disetujui",
     detail:
-      "Delivery Order yang anda ajukan telah disetujui dengan nomor DOXC6HYTEH silakan lihat pada menu list permohonan untuk mengetahuidetail",
+      "Delivery Order yang anda ajukan telah disetujui dengan nomor DOXC6HYTEH silakan lihat pada menu list permohonan untuk mengetahui detail",
   },
   {
     judul: "Pemberitahuan proses pengajuan DO disetujui",
     detail:
-      "Delivery Order yang anda ajukan telah disetujui dengan nomor DOXC6HYTEH silakan lihat pada menu list permohonan untuk mengetahuidetail",
+      "Delivery Order yang anda ajukan telah disetujui dengan nomor DOXC6HYTEH silakan lihat pada menu list permohonan untuk mengetahui detail",
   },
 ];
 
