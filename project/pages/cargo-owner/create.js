@@ -3,8 +3,12 @@ import Navbar from '@/components/Navbar'
 import Image from "next/image";
 import icon_dropdown from "../../assets/dropdown.svg";
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function create() {
+  const notify = () => toast("Data sukses terkirim", { hideProgressBar: true, autoClose: 2000, type: 'success' });
+  
   return (
     <div className="h-100% bg-[#EBEFF2]">
       <Navbar/>
@@ -32,7 +36,8 @@ export default function create() {
           <button className='bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3'>+ Add Container</button><br/>
           <input type="file" className='bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3' multiple/>
           <div className='flex justify-end'>
-            <button className='bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3'>Send</button>
+            <button onClick={notify} className='bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3'>Send</button>
+            <ToastContainer />
           </div>          
         </div>        
       </div>              
