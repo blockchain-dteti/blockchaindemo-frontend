@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Butto, Buttonn } from "react-scroll";
+import { Butto, Linkn } from "react-scroll";
+import Link from "next/Link";
+// import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,41 +13,43 @@ function Navbar() {
           <div className=" mx-20 w-full">
             <div className="flex justify-between">
               <div>
-                <button
-                  activeClass="about"
-                  to="about"
+                <Link
+                  href="/cargo-owner/dashboard"
                   smooth={true}
                   offset={50}
                   duration={500}
-                  href="cargo-owner/dashboard"
                   className="cursor-pointer font-bold hover:text-blue-400 text-black px-3 py-2 rounded-md text-sm "
                 >
                   DASHBOARD
-                </button>
-                <button
-                  activeClass="work"
-                  to="work"
+                </Link>
+                <Link
+                  href="/cargo-owner/create"
                   smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:text-blue-400 text-black  px-3 py-2 rounded-md text-sm font-bold"
                 >
                   CREATE REQUEST
-                </button>
+                </Link>
 
-                <button
-                  activeClass="Services"
-                  to="work"
+                <Link
+                  href="/cargo-owner/list"
                   smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:text-blue-400 text-black  px-3 py-2 rounded-md text-sm font-bold"
                 >
                   REQUEST LIST
-                </button>
+                </Link>
               </div>
               <div className="flex items-center">
-                <button className="px-3 py-2">
+                <Link
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  href="/cargo-owner/notif"
+                  className="px-3 py-2"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -54,25 +58,24 @@ function Navbar() {
                   >
                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                   </svg>
-                </button>
+                </Link>
 
-                <button
-                  activeClass="Notif"
-                  to="notif"
+                <Link
                   smooth={true}
                   offset={50}
                   duration={500}
+                  href="/cargo-owner/login"
                   className="cursor-pointer inline-block border-2 border-[#293165] leading-tight uppercase focus:outline-none focus:ring-0 transition duration-150 ease-in-out  bg-white text-[#293165] px-3 py-2 rounded-md text-sm hover:bg-[#293165] hover:text-white font-bold"
                 >
                   LOGOUT
-                </button>
+                </Link>
               </div>
             </div>
           </div>
           <div className="mr-10 flex md:hidden ">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              type="button"
+              type="Link"
               className="bg-[#293165] inline-flex items-center justify-center p-2 rounded-md text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
@@ -130,8 +133,8 @@ function Navbar() {
                 ref={ref}
                 className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
-                <button
-                  href="/home"
+                <Link
+                  href="/cargo-owner/dashboard"
                   activeClass="home"
                   smooth={true}
                   offset={50}
@@ -139,9 +142,9 @@ function Navbar() {
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   DASHBOARD
-                </button>
-                <button
-                  href="/about"
+                </Link>
+                <Link
+                  href="/cargo-owner/create"
                   activeClass="about"
                   to="about"
                   smooth={true}
@@ -150,10 +153,10 @@ function Navbar() {
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   CREATE REQUEST
-                </button>
+                </Link>
 
-                <button
-                  href="/work"
+                <Link
+                  href="/cargo-owner/list"
                   activeClass="work"
                   to="work"
                   smooth={true}
@@ -162,9 +165,9 @@ function Navbar() {
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   REQUEST LIST
-                </button>
-                <button
-                  href="/services"
+                </Link>
+                <Link
+                  href="/cargo-owner/login"
                   activeClass="services"
                   to="services"
                   smooth={true}
@@ -173,10 +176,10 @@ function Navbar() {
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   LOGOUT
-                </button>
+                </Link>
 
-                <button
-                  href="/contact"
+                <Link
+                  href="/cargo-owner/login"
                   activeClass="work"
                   to="work"
                   smooth={true}
@@ -185,7 +188,7 @@ function Navbar() {
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Contact
-                </button>
+                </Link>
               </div>
             </div>
           )}
