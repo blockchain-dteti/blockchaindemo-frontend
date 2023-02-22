@@ -21,14 +21,22 @@ export default function TableBody(props) {
             props.status === "On Progress" ? "bg-yellow-500" : ""
           } ${
             props.status === "Accepted" ? "bg-green-500" : "bg-red-500"
-          } px-4 py-1 rounded-full`}
+          } px-6 py-1 rounded-full`}
         >
           {props.status}
         </p>
       </div>
-      <p className="px-10 py-4 inline-flex justify-center items-center border-r border-gray-300">
-        {props.expired_date}
-      </p>
+      <div className="px-10 py-4 inline-flex justify-center items-center border-r border-gray-300">
+        <p
+          className={`${
+            props.expired_date === "Not Yet"
+              ? "bg-indigo-400 px-6 py-1 rounded-full"
+              : ""
+          }`}
+        >
+          {props.expired_date}
+        </p>
+      </div>
       <div className="col-span-2 justify-center flex px-5 py-3 space-x-20">
         <button className="p-4 rounded-full text-indigo-800 bg-gray-300 hover:bg-indigo-800 hover:text-white">
           <IoDocumentTextOutline className="scale-150" />

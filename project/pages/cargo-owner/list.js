@@ -2,27 +2,6 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import TableBody from "@/components/TableBody";
 
-const data = [
-  {
-    do_number: "1234567",
-    shipping_agency: "blackphanter",
-    status: "On Progress",
-    expired_date: "28-02-2023",
-  },
-  {
-    do_number: "9876543",
-    shipping_agency: "swansong",
-    status: "Rejected",
-    expired_date: "28-02-2023",
-  },
-  {
-    do_number: "0000123",
-    shipping_agency: "slytherin",
-    status: "Accepted",
-    expired_date: "28-02-2023",
-  },
-];
-
 export default function list() {
   return (
     <div className="flex flex-col bg-bgcolor w-screen h-screen">
@@ -77,3 +56,25 @@ export default function list() {
     </div>
   );
 }
+
+const data = [
+  {
+    do_number: "1234567",
+    shipping_agency: "blackphanter",
+    status: "On Progress",
+    expired_date: "Not Yet",
+  },
+
+  {
+    do_number: "9876543",
+    shipping_agency: "swansong",
+    status: "Rejected",
+    expired_date: "28-02-2023",
+  },
+  {
+    do_number: "0000123",
+    shipping_agency: "slytherin",
+    status: "Accepted",
+    expired_date: "28-02-2023",
+  },
+];
