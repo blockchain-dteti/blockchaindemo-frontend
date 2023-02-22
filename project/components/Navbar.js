@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Butto, Linkn } from "react-scroll";
-import Link from "next/Link";
-// import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +9,7 @@ function Navbar() {
       <nav className="bg-white shadow-lg fixed w-full z-10 flex items-center ">
         <div className="flex items-center h-20 w-full ">
           <div className=" mx-20 w-full">
-            <div className="flex justify-between">
+            <div className="flex items-center justify-between">
               <div>
                 <Link
                   href="/cargo-owner/dashboard"
@@ -50,13 +48,9 @@ function Navbar() {
                   href="/cargo-owner/notif"
                   className="px-3 py-2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    class="text-gray-600 w-6 h-7"
-                    viewBox="2 2 16 16"
-                  >
-                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                  <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.75556 9.872V8.61343C4.75556 4.40865 8.89444 1 14 1C19.1055 1 23.2444 4.40864 23.2444 8.61343V9.872C23.2444 12.6085 24.2049 15.2866 26.01 17.5841L27 18.844H1L1.99001 17.584C3.79517 15.2866 4.75556 12.6085 4.75556 9.872Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12.5555 23.4702C13.3275 24.1766 14.6725 24.1766 15.4444 23.4702" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </Link>
 
