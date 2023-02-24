@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import React from "react";
+import Link from "next/link";
 
 export default function login() {
   return (
@@ -50,12 +51,13 @@ export default function login() {
                 <div class="md:flex md:items-center">
                   <div class="md:w-1/3"></div>
                   <div class="md:w-2/3">
-                    <button
+                    <Link
                       class="shadow bg-white hover:bg-blue-600 focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded"
                       type="button"
+                      href="/cargo-owner/dashboard"
                     >
                       LOGIN
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </form>
