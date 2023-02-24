@@ -21,8 +21,8 @@ export default function detail_reject() {
         </h1>
         <div className="grid grid-cols-10 gap-3">
           <div className="col-span-3">
-            <div className="h-[560px] p-8 rounded-md bg-white items-center flex justify-center overflow-hidden">
-              <Image className="object-fill" src={surat} alt="image"></Image>
+            <div className="h-[560px] p-8 rounded-md bg-white items-center flex justify-center">
+              <p className="text-[30px] text-black font-bold">No Preview DO</p>
             </div>
             <button className="bg-[#798BFE] py-2 px-8 mt-8 rounded-md text-[16px] text-[#293165] font-bold drop-shadow-lg">
               Documents check
