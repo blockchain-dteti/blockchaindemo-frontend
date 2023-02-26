@@ -31,7 +31,7 @@ export default function create() {
         <p className="text-4xl text-black font-bold pb-10">
           Request Delivery Order
         </p>
-        <div className="px-36">
+        <div className="">
           <Definput
             label="Shipping Agency"
             placeholder="Korean Marine Transport"

@@ -12,14 +12,13 @@ export default function list() {
   const handleClick = (status) => setFilter(status);
 
   return (
-    <div className="flex flex-col bg-bgcolor w-screen h-screen">
+    <div className="flex flex-col bg-bgcolor w-screen min-h-screen">
       <Navbar />
       <div className="p-32 h-full flex flex-col">
         <div className="flex justify-between text-black">
           <p className="text-4xl font-bold">List Request Delivery Order</p>
           <input className="bg-white w-[24vw] border border-gray-300 drop-shadow-sm px-5 py-1"></input>
         </div>
-        <p className="text-black">{filter}</p>
         <div className="w-max flex text-black bg-gray-300/60 rounded-t-xl font-semibold mt-12 ">
           <button
             className={` ${
