@@ -5,6 +5,7 @@ import icon_dropdown from "../../assets/dropdown.svg";
 import { React, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DefDropDown from "@/components/DefDropdown";
 
 export default function create() {
   const notify = () =>
@@ -15,7 +16,6 @@ export default function create() {
     });
 
   // const addContainer = () => count.push(count[count.length - 1] + 1);
-
   const [count, setCount] = useState([1]);
   const addContainer = () =>
     setCount((prevCount) => [...prevCount, prevCount.length + 1]);
@@ -23,7 +23,7 @@ export default function create() {
   const [open, setOpen] = useState(false);
   const openContainer = () =>
     setOpen(!open);
-
+  
   return (
     <div className="h-100% bg-[#EBEFF2]">
       <Navbar />
@@ -32,9 +32,10 @@ export default function create() {
           Request Delivery Order
         </p>
         <div className="">
-          <Definput
+          <DefDropDown
             label="Shipping Agency"
-            placeholder="Korean Marine Transport"
+            datas={shipping_agency}
+            placeholder={shipping_agency[0]}   
           />
           <Definput
             label="Notify Party"
@@ -48,14 +49,20 @@ export default function create() {
             label="Shipper/Exporter"
             placeholder="China Coast Freight co., ltd Tianjin Branchunt M,"
           />
-          <Definput label="Port of Discharge" placeholder="Xingang, China" />
-          <Definput
-            label="Port of Delivery"
-            placeholder="Jakarta, Java, Indonesia"
+          <DefDropDown
+            label="Port of Discharge" 
+            datas={port_of_discharge}
+            placeholder={port_of_discharge[0]}   
           />
-          <Definput
-            label="Port of Loading"
-            placeholder="Jakarta, Java, Indonesia"
+          <DefDropDown
+            label="Port of Delivery"
+            datas={port_of_delivery}
+            placeholder={port_of_delivery[0]}   
+          />
+          <DefDropDown
+            label="Port of Loading" 
+            datas={port_of_loading}
+            placeholder={port_of_loading[0]}   
           />
           <p className="text-3xl text-black font-bold py-10">
             Detail Container
@@ -72,14 +79,15 @@ export default function create() {
                 <div className={open ? 'hidden' : 'show'}>
                   <Definput label="Size Type" placeholder="45-10" />
                   <Definput label="Gross Weight" placeholder="21686.66" />
-                  <Definput
+                  <DefDropDown
                     label="Depo Name"
-                    placeholder="PT. Segara Pacific Maju (SPM)"
+                    datas={depo_name}
+                    placeholder={depo_name[0]}   
                   />
                   <Definput
                     label="Phone Number"
                     placeholder="92-21-44-01-592(6520)"
-                  />
+                  />                  
                 </div>
               </>
             ))}
@@ -110,3 +118,9 @@ export default function create() {
     </div>
   );
 }
+
+const shipping_agency = ['Korean Marine Transport','Sarana Trans Asia','Tri Marina Globanusa', 'Samudera Jaya Makmur'];
+const port_of_discharge = ['Jakarta, Java, Indonesia','Banten, Java, Indonesia','Lampung, Sumatera, Indonesia', 'Kepulauan Riau, Sumatera, Indonesia'];
+const port_of_delivery = ['Jakarta, Java, Indonesia','Banten, Java, Indonesia','Lampung, Sumatera, Indonesia', 'Kepulauan Riau, Sumatera, Indonesia'];
+const port_of_loading = ['Guangzhou, China','Xingang, China','Pasir Panjang, Singapore', 'Hong Kong, China'];
+const depo_name = ['PT Segara Pasific Maju (SPM)','PT. Bina Sinar Amity (BSA)','PT. Dunia Express (DUNEX)', 'PT. Bina Sinar Amity (BSA) - Serang'];
