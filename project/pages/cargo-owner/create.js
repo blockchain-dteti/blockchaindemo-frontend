@@ -19,6 +19,10 @@ export default function create() {
   const [count, setCount] = useState([1]);
   const addContainer = () =>
     setCount((prevCount) => [...prevCount, prevCount.length + 1]);
+  
+  const [open, setOpen] = useState(false);
+  const openContainer = () =>
+    setOpen(!open);
 
   return (
     <div className="h-100% bg-[#EBEFF2]">
@@ -63,9 +67,9 @@ export default function create() {
                   <p className="text-xl text-black font-bold">
                     Container {index}
                   </p>
-                  <Image className="" src={icon_dropdown} alt="image"></Image>
+                  <Image onClick={openContainer} className={open ? null : 'rotate-180' } src={icon_dropdown} alt="image"></Image>
                 </div>
-                <div>
+                <div className={open ? 'hidden' : 'show'}>
                   <Definput label="Size Type" placeholder="45-10" />
                   <Definput label="Gross Weight" placeholder="21686.66" />
                   <Definput
@@ -81,7 +85,7 @@ export default function create() {
             ))}
           </div>
           <button
-            className="bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3"
+            className="bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3 hover:bg-[#71B6F9]"
             onClick={addContainer}
           >
             + Add Container
@@ -89,13 +93,13 @@ export default function create() {
           <br />
           <input
             type="file"
-            className="bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3"
+            className="bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3 hover:bg-[#71B6F9]"
             multiple
           />
           <div className="flex justify-end">
             <button
               onClick={notify}
-              className="bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3"
+              className="bg-[#798BFE] py-3 px-6 rounded-md text-xl font-bold drop-shadow-lg mt-3 hover:bg-[#71B6F9]"
             >
               Send
             </button>
