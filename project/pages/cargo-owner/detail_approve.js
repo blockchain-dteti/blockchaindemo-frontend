@@ -9,7 +9,7 @@ export default function detail_approve() {
   return (
     <div className="flex flex-col bg-bgcolor w-screen h-screen">
       <Navbar />
-      <div className="w-screen bg-[#EBEFF2] p-36 pt-32">
+      <div className="w-screen bg-[#EBEFF2] p-32">
         <Link
           className="bg-[#2F88FF] py-2 px-16 rounded-md text-[16px] font-bold drop-shadow-lg"
           href="/cargo-owner/list"
