@@ -69,7 +69,7 @@ export default function create() {
           </p>
           <div className="space-y-16">
             {count.map((index) => (
-              <>
+              <div key={index}>
                 <div className="flex gap-3">
                   <p className="text-xl text-black font-bold">
                     Container {index}
@@ -89,7 +89,7 @@ export default function create() {
                     placeholder="92-21-44-01-592(6520)"
                   />                  
                 </div>
-              </>
+              </div>
             ))}
           </div>
           <button

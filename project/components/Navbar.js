@@ -13,7 +13,7 @@ function Navbar() {
               <div className="space-x-6">
                 <Link
                   href="/cargo-owner/dashboard"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer font-bold hover:text-blue-400 text-black py-2 rounded-md text-sm "
@@ -22,7 +22,7 @@ function Navbar() {
                 </Link>
                 <Link
                   href="/cargo-owner/create"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:text-blue-400 text-black py-2 rounded-md text-sm font-bold"
@@ -32,7 +32,7 @@ function Navbar() {
 
                 <Link
                   href="/cargo-owner/list"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:text-blue-400 text-black py-2 rounded-md text-sm font-bold"
@@ -42,7 +42,7 @@ function Navbar() {
               </div>
               <div className="flex items-center space-x-6">
                 <Link
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   href="/cargo-owner/notif"
@@ -58,22 +58,22 @@ function Navbar() {
                     <path
                       d="M4.75556 9.872V8.61343C4.75556 4.40865 8.89444 1 14 1C19.1055 1 23.2444 4.40864 23.2444 8.61343V9.872C23.2444 12.6085 24.2049 15.2866 26.01 17.5841L27 18.844H1L1.99001 17.584C3.79517 15.2866 4.75556 12.6085 4.75556 9.872Z"
                       stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M12.5555 23.4702C13.3275 24.1766 14.6725 24.1766 15.4444 23.4702"
                       stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </Link>
 
                 <Link
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   href="/cargo-owner/login"
@@ -148,7 +148,7 @@ function Navbar() {
                 <Link
                   href="/cargo-owner/dashboard"
                   activeClass="home"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -159,7 +159,7 @@ function Navbar() {
                   href="/cargo-owner/create"
                   activeClass="about"
                   to="about"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -171,7 +171,7 @@ function Navbar() {
                   href="/cargo-owner/list"
                   activeClass="work"
                   to="work"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -182,7 +182,7 @@ function Navbar() {
                   href="/cargo-owner/login"
                   activeClass="services"
                   to="services"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -194,7 +194,7 @@ function Navbar() {
                   href="/cargo-owner/login"
                   activeClass="work"
                   to="work"
-                  smooth={true}
+                  // smooth={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"

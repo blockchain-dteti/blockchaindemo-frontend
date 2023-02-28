@@ -1,13 +1,9 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import Navbar from "@/components/Navbar";
 import TableBody from "@/components/TableBody";
 
 export default function list() {
-  const [filter, setFilter] = useState([]);
-
-  useEffect(() => {
-    setFilter("Requested");
-  }, []);
+  const [filter, setFilter] = useState("Requested");
 
   const handleClick = (status) => setFilter(status);
 
@@ -46,20 +42,20 @@ export default function list() {
           </button>
         </div>
         <div className="h-full bg-abu flex flex-col w-full p-8">
-          <div className="font-semibold grid grid-cols-6">
-            <p className="px-10 py-2 bg-indigo-900 text-center items-center">
+          <div className="font-semibold grid grid-cols-6 items-center bg-indigo-900">
+            <p className="px-10 py-2 text-center items-center">
               DO Number
             </p>
-            <p className="px-10 py-2 bg-indigo-900 text-center items-center">
+            <p className="px-10 py-2 text-center items-center">
               Shipping Agency
             </p>
-            <p className="px-10 py-2 bg-indigo-900 text-center items-center">
+            <p className="px-10 py-2 text-center items-center">
               Status
             </p>
-            <p className="px-10 py-2 bg-indigo-900 text-center items-center">
+            <p className="px-10 py-2 text-center items-center">
               Expired Date
             </p>
-            <p className="px-10 py-2 bg-indigo-900 text-center col-span-2 items-center">
+            <p className="px-10 py-2 text-center col-span-2 items-center">
               Action
             </p>
           </div>
@@ -68,6 +64,7 @@ export default function list() {
               .filter((data) => data.status.includes(filter))
               .map((item, index) => (
                 <TableBody
+                  key={item.do_number}
                   do_number={item.do_number}
                   shipping_agency={item.shipping_agency}
                   status_text={item.status_text}
