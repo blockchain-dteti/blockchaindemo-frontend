@@ -13,7 +13,7 @@ function Navbar() {
               <div className="space-x-6">
                 <Link
                   href="/cargo-owner/dashboard"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer font-bold hover:text-blue-400 text-black py-2 rounded-md text-sm "
@@ -22,7 +22,7 @@ function Navbar() {
                 </Link>
                 <Link
                   href="/cargo-owner/create"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:text-blue-400 text-black py-2 rounded-md text-sm font-bold"
@@ -32,7 +32,7 @@ function Navbar() {
 
                 <Link
                   href="/cargo-owner/list"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:text-blue-400 text-black py-2 rounded-md text-sm font-bold"
@@ -42,7 +42,7 @@ function Navbar() {
               </div>
               <div className="flex items-center space-x-6">
                 <Link
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   href="/cargo-owner/notif"
@@ -53,7 +53,7 @@ function Navbar() {
                     height="25"
                     viewBox="0 0 28 25"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="http:www.w3.org/2000/svg"
                   >
                     <path
                       d="M4.75556 9.872V8.61343C4.75556 4.40865 8.89444 1 14 1C19.1055 1 23.2444 4.40864 23.2444 8.61343V9.872C23.2444 12.6085 24.2049 15.2866 26.01 17.5841L27 18.844H1L1.99001 17.584C3.79517 15.2866 4.75556 12.6085 4.75556 9.872Z"
@@ -73,7 +73,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   href="/cargo-owner/login"
@@ -96,7 +96,7 @@ function Navbar() {
               {!isOpen ? (
                 <svg
                   className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http:www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -112,7 +112,7 @@ function Navbar() {
               ) : (
                 <svg
                   className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http:www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -148,7 +148,7 @@ function Navbar() {
                 <Link
                   href="/cargo-owner/dashboard"
                   activeClass="home"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -159,7 +159,7 @@ function Navbar() {
                   href="/cargo-owner/create"
                   activeClass="about"
                   to="about"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -171,7 +171,7 @@ function Navbar() {
                   href="/cargo-owner/list"
                   activeClass="work"
                   to="work"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -182,7 +182,7 @@ function Navbar() {
                   href="/cargo-owner/login"
                   activeClass="services"
                   to="services"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -194,7 +194,7 @@ function Navbar() {
                   href="/cargo-owner/login"
                   activeClass="work"
                   to="work"
-                  // smooth={true}
+                  scroll={true}
                   offset={50}
                   duration={500}
                   className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"

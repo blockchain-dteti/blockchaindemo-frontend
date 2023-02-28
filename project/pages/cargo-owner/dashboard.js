@@ -9,7 +9,7 @@ export default function dashboard() {
   return (
     <div>
       <Navbar />
-      <div className="w-screen bg-[#EBEFF2] p-32 pt-28">
+      <div className="w-screen min-h-screen bg-[#EBEFF2] p-32 pt-28">
         <p className="text-[52px] text-[#293165] font-bold mb-20">
           Cargo Owner Dashboard
         </p>
