@@ -3,7 +3,6 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { MdOutlineMoreTime } from "react-icons/md";
 import 'react-tooltip/dist/react-tooltip.css';
-import { Tooltip } from 'react-tooltip'
 
 export default function TableBody(props) {
   return (
@@ -44,28 +43,25 @@ export default function TableBody(props) {
       </div>
       <div className="col-span-2 justify-center items-center flex px-5 py-3">
         <button
-          data-tooltip-id="detail-tip" data-tooltip-content="Detail" 
+          title="Detail"
           className="h-fit p-4 rounded-full text-indigo-800 bg-gray-300 hover:bg-indigo-800 hover:text-white mx-8"          
         >
           <IoDocumentTextOutline className="scale-150" />
         </button>
-        {/* <Tooltip id="detail-tip" place="bottom"/> */}
         <button
-          data-tooltip-id="extend-tip" data-tooltip-content="Extend"
+          title="Extend"
           className={`${
             props.status === "Expired" ? "" : "hidden"
           } h-fit p-4 rounded-full text-indigo-800 bg-gray-300 hover:bg-indigo-800 hover:text-white mx-8`}
         >
           <MdOutlineMoreTime className="scale-150" />
         </button>
-        {/* <Tooltip id="extend-tip" place="bottom"/> */}
         <button
-          data-tooltip-id="delete-tip" data-tooltip-content="Delete"
+          title="Delete"
           className="h-fit p-4 rounded-full text-indigo-800 bg-gray-300 hover:bg-indigo-800 hover:text-white mx-8"
         >
           <HiOutlineTrash className="scale-150" />
         </button>
-        {/* <Tooltip id="delete-tip" place="bottom"/> */}
       </div>      
     </div>
   );
