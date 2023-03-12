@@ -7,6 +7,10 @@ const DropSearch = (props) => {
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    props.textValue(selected);
+  }, [selected]);
+
   return (
     <div className="w-full relative focus:outline-none border border-[#293165] hover:border-[#71B6F9] rounded-md">
       <div
@@ -15,17 +19,17 @@ const DropSearch = (props) => {
           !selected && "text-gray-400 italic"
         }`}
       >
-        {selected
-          ? selected
-          : props.placeholder}
+        {selected ? selected : props.placeholder}
         <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
       </div>
       <ul
-        className={`bg-white text-black mt-2 overflow-y-auto absolute w-full ${
-          open ? "max-h-60" : "max-h-0"
+        className={`bg-white text-black mt-2 overflow-y-auto absolute z-10 shadow-lg shadow-slate-500/20 rounded-md w-full ${
+          open
+            ? "max-h-60 outline outline-offset-0 outline-1 outline-white"
+            : "max-h-0"
         } `}
       >
-        <div className="flex items-center px-2 sticky top-0 bg-white">
+        <div className="flex items-center px-2 sticky top-0 bg-white ">
           <AiOutlineSearch size={18} className="text-gray-700" />
           <input
             type="text"
@@ -43,11 +47,7 @@ const DropSearch = (props) => {
               data?.toLowerCase() === selected?.toLowerCase() &&
               "bg-sky-600 text-white"
             }
-            ${
-              data?.toLowerCase().startsWith(inputValue)
-                ? "block"
-                : "hidden"
-            }`}
+            ${data?.toLowerCase().startsWith(inputValue) ? "block" : "hidden"}`}
             onClick={() => {
               if (data?.toLowerCase() !== selected.toLowerCase()) {
                 setSelected(data);
