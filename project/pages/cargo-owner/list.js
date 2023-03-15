@@ -37,7 +37,6 @@ export default function list() {
         }));
 
         setData(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
 

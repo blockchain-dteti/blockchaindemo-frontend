@@ -3,8 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Definput from "@/components/Definput";
-import surat from "../../assets/surat.png";
+import surat from "../../assets/do.jpg";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 export default function Detail() {
   const router = useRouter();
@@ -24,8 +25,28 @@ export default function Detail() {
           }
         );
         const data = await res.json();
-        setData(data[0]);
-        console.log(data[0]);
+        const containers = [];
+        await Promise.all(
+          data[0].Containers.map(async (container) => {
+            const resDepo = await fetch(
+              `http://localhost:5000/api/company?id=${container.depoId}`,
+              {
+                method: "GET",
+              }
+            );
+            const dataDepo = await resDepo.json();
+            containers.push({
+              sizeType: container.sizeType,
+              grossWeight: container.grossWeight,
+              depoName: dataDepo[0].name,
+              phoneNumber: dataDepo[0].phoneNumber,
+            });
+          })
+        );
+        setData({
+          ...data[0],
+          Containers: containers
+        })
       } catch (error) {
         console.error(error);
         toast(error, {
@@ -94,7 +115,7 @@ export default function Detail() {
               Detail Container
             </p>
             {data?.Containers.map((container, index) => (
-              <div key={container.id}>
+              <div key={index}>
                 <p className="text-xl text-black font-bold mt-3 mb-7">
                   Container {index + 1}
                 </p>
@@ -105,11 +126,11 @@ export default function Detail() {
                 />
                 <Definput
                   label="Depo Name"
-                  textValue={container.depoName?.name}
+                  textValue={container.depoName}
                 />
                 <Definput
                   label="Phone Number"
-                  textValue={container.depoName?.phoneNumber}
+                  textValue={container.phoneNumber}
                 />
               </div>
             ))}
