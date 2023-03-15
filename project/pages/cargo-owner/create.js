@@ -55,10 +55,10 @@ export default function create() {
       });
 
       toast.dismiss(loadingToast);
-      toast("Data sukses terkirim", {
-        hideProgressBar: true,
+      toast.success("Data sukses terkirim", {
+        hideProgressBar: false,
         autoClose: 2000,
-        type: "success",
+        theme: "colored",
       });
     } catch (error) {
       console.error(error);
@@ -85,7 +85,7 @@ export default function create() {
   return (
     <div className="h-100% bg-[#EBEFF2]">
       <Navbar />
-      <div className="p-32 flex flex-col space-y-10">
+      <div className="p-32 flex flex-col space-y-16">
         <div>
           <p className="text-4xl text-black font-bold mb-8">
             Request Delivery Order

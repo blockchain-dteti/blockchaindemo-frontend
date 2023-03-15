@@ -23,20 +23,21 @@ export default function Container(props) {
         />
       </div>
       <div
-        className={`${open ? "hidden" : "show"
-          } bg-slate-200 p-8 rounded-xl mt-3 border border-slate-300 space-y-10`}
+        className={`${
+          open ? "hidden" : "show"
+        } bg-slate-200 p-8 rounded-xl mt-3 border border-slate-300 space-y-10`}
       >
         <Definput
           label="Size Type"
-          placeholder="45-10"
+          placeholder="45-100"
           textValue={props.container.sizeType}
-          setTextValue={(val) => props.changeContainer('sizeType', val)}
+          setTextValue={(val) => props.changeContainer("sizeType", val)}
         />
         <Definput
           label="Gross Weight"
           placeholder="21686.66"
           textValue={props.container.grossWeight}
-          setTextValue={(val) => props.changeContainer('grossWeight', val)}
+          setTextValue={(val) => props.changeContainer("grossWeight", val)}
         />
 
         <DefDropdown
@@ -44,7 +45,9 @@ export default function Container(props) {
           datas={companies.map((data) => data.name)}
           placeholder={companies[0].name}
           textValue={props.container.depoName?.name}
-          setTextValue={(index) => props.changeContainer('depoName', companies[index])}
+          setTextValue={(index) =>
+            props.changeContainer("depoName", companies[index])
+          }
         />
         <Definput
           label="Phone Number"

@@ -19,7 +19,7 @@ export default function Detail() {
     (async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/do?includes=Container,ShippingAgency,NotifyParty,Consignee,Shipper,PortOfDischarge,PortOfDelivery,PortOfLoading,Depo",
+          `http://localhost:5000/api/do?id=${id}&includes=Container,ShippingAgency,NotifyParty,Consignee,Shipper,PortOfDischarge,PortOfDelivery,PortOfLoading,Depo`,
           {
             method: "GET",
           }
@@ -45,8 +45,8 @@ export default function Detail() {
         );
         setData({
           ...data[0],
-          Containers: containers
-        })
+          Containers: containers,
+        });
       } catch (error) {
         console.error(error);
         toast(error, {
@@ -80,58 +80,55 @@ export default function Detail() {
               Print DO
             </button>
           </div>
-          <div className="col-span-7 pl-28">
-            <div className="mb-16 relative">
-              {/* <p className="w-max absolute top-0 right-0 text-sm text-white py-1 rounded-lg px-10 bg-[#E42626]">
-                Status DO Reject
-              </p> */}
+          <div className="col-span-7 pl-28 space-y-10">
+            <div className="bg-slate-300/50 p-10 rounded-xl border border-slate-300 shadow-sm space-y-10">
+              <Definput
+                label="Shipping Agency"
+                textValue={data?.ShippingAgency?.name}
+              />
+              <Definput
+                label="Notify Party"
+                textValue={data?.NotifyParty?.name}
+              />
+              <Definput label="Consignee" textValue={data?.Consignee?.name} />
+              <Definput
+                label="Shipper/Exporter"
+                textValue={data?.Shipper?.name}
+              />
+              <Definput
+                label="Port of Discharge"
+                textValue={data?.PortOfDischarge?.name}
+              />
+              <Definput
+                label="Port of Delivery"
+                textValue={data?.PortOfDelivery?.name}
+              />
+              <Definput
+                label="Port of Loading"
+                textValue={data?.PortOfLoading?.name}
+              />
             </div>
-            <Definput
-              label="Shipping Agency"
-              textValue={data?.ShippingAgency?.name}
-            />
-            <Definput
-              label="Notify Party"
-              textValue={data?.NotifyParty?.name}
-            />
-            <Definput label="Consignee" textValue={data?.Consignee?.name} />
-            <Definput
-              label="Shipper/Exporter"
-              textValue={data?.Shipper?.name}
-            />
-            <Definput
-              label="Port of Discharge"
-              textValue={data?.PortOfDischarge?.name}
-            />
-            <Definput
-              label="Port of Delivery"
-              textValue={data?.PortOfDelivery?.name}
-            />
-            <Definput
-              label="Port of Loading"
-              textValue={data?.PortOfLoading?.name}
-            />
-            <p className="text-3xl text-black font-bold mt-6">
+
+            <p className="text-3xl text-black font-bold pt-10">
               Detail Container
             </p>
             {data?.Containers.map((container, index) => (
               <div key={index}>
-                <p className="text-xl text-black font-bold mt-3 mb-7">
+                <p className="text-xl text-black font-bold mb-7">
                   Container {index + 1}
                 </p>
-                <Definput label="Size Type" textValue={container.sizeType} />
-                <Definput
-                  label="Gross Weight"
-                  textValue={container.grossWeight}
-                />
-                <Definput
-                  label="Depo Name"
-                  textValue={container.depoName}
-                />
-                <Definput
-                  label="Phone Number"
-                  textValue={container.phoneNumber}
-                />
+                <div className="bg-slate-300/50 p-10 rounded-xl border border-slate-300 shadow-sm space-y-10">
+                  <Definput label="Size Type" textValue={container.sizeType} />
+                  <Definput
+                    label="Gross Weight"
+                    textValue={container.grossWeight}
+                  />
+                  <Definput label="Depo Name" textValue={container.depoName} />
+                  <Definput
+                    label="Phone Number"
+                    textValue={container.phoneNumber}
+                  />
+                </div>
               </div>
             ))}
           </div>
