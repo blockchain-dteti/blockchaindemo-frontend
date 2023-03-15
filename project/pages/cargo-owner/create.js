@@ -1,10 +1,18 @@
-import Definput from "@/components/Definput";
 import Navbar from "@/components/Navbar";
 import { React, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DefDropDown from "@/components/DefDropdown";
 import Container from "@/components/Container";
+import { shipping_agents, ports, companies } from "@/data/data";
+
+function addEmptyContainer() {
+  return {
+    sizeType: undefined,
+    grossWeight: undefined,
+    depoName: undefined,
+  };
+}
 
 export default function create() {
   const [shipper, setShipper] = useState("");
@@ -14,36 +22,65 @@ export default function create() {
   const [portDischarge, setPortDischarge] = useState("");
   const [portDelivery, setPortDelivery] = useState("");
   const [portLoading, setPortLoading] = useState("");
-  const [container, setContainer] = useState([]);
+  const [containers, setContainers] = useState([addEmptyContainer()]);
 
-  const notify = () =>
-    toast("Data sukses terkirim", {
-      hideProgressBar: true,
-      autoClose: 2000,
-      type: "success",
-    });
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  function handleSubmit() {
-    notify();
-    console.log(data);
+    try {
+      const loadingToast = toast("Sedang memproses...", {
+        autoClose: false,
+        type: "loading",
+      });
+
+      const data = {
+        shippingAgencyId: shippingAgency?.id,
+        notifyPartyId: notifyParty?.id,
+        consigneeId: consignee?.id,
+        shipperId: shipper?.id,
+        portOfDischargeId: portDischarge?.id,
+        portOfDeliveryId: portDelivery?.id,
+        portOfLoadingId: portLoading?.id,
+        containers: containers.map((container) => ({
+          sizeType: container.sizeType,
+          grossWeight: Number(container.grossWeight),
+          depoId: container.depoName.id,
+        })),
+      };
+      const reqBody = JSON.stringify(data);
+      await fetch("http://localhost:5000/api/do", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: reqBody,
+      });
+
+      toast.dismiss(loadingToast);
+      toast("Data sukses terkirim", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "success",
+      });
+    } catch (error) {
+      console.error(error);
+
+      toast.dismiss(loadingToast);
+      toast(error, {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "error",
+      });
+    }
   }
 
-  const data = {
-    "notify party": notifyParty,
-    consignee: consignee,
-    "shipping agency": shippingAgency,
-    "shipper/exporters": shipper,
-    "port of discharge": portDischarge,
-    "port of delivery": portDelivery,
-    "port of loading": portLoading,
-  };
-  // const addContainer = () => count.push(count[count.length - 1] + 1);
-  const [count, setCount] = useState([1]);
-  const addContainer = () =>
-    setCount((prevCount) => [...prevCount, prevCount.length + 1]);
+  function addContainer() {
+    setContainers((prev) => [...prev, addEmptyContainer()]);
+  }
 
-  // const addContainerData = () =>
-  //   setContainer((prevContainer) => [...prevContainer]);
+  function changeContainer(index, key, value) {
+    const _containers = [...containers];
+    _containers[index][key] = value;
+    setContainers(_containers);
+  }
 
   return (
     <div className="h-100% bg-[#EBEFF2]">
@@ -56,50 +93,69 @@ export default function create() {
           <div className="space-y-10 p-10 bg-slate-200 shadow-sm border border-slate-300 rounded-xl">
             <DefDropDown
               label="Shipping Agency"
-              datas={shipping_agency}
-              placeholder={shipping_agency[0]}
-              textValue={setShippingAgency}
+              datas={shipping_agents.map((data) => data.name)}
+              placeholder={shipping_agents[0].name}
+              textValue={shippingAgency.name}
+              setTextValue={(index) =>
+                setShippingAgency(shipping_agents[index])
+              }
             />
-            <Definput
+            <DefDropDown
               label="Notify Party"
-              placeholder="PT.Macoline Indonesia, Ruko Komplek Puri Mutiara BLO"
-              textValue={setNotifyParty}
+              datas={companies.map((data) => data.name)}
+              placeholder={companies[0].name}
+              textValue={notifyParty.name}
+              setTextValue={(index) => setNotifyParty(companies[index])}
             />
-            <Definput
+            <DefDropDown
               label="Consignee"
-              placeholder="PT.Macoline Indonesia, Ruko Komplek Puri Mutiara BLO"
-              textValue={setConsignee}
+              datas={companies.map((data) => data.name)}
+              placeholder={companies[0].name}
+              textValue={consignee.name}
+              setTextValue={(index) => setConsignee(companies[index])}
             />
-            <Definput
+            <DefDropDown
               label="Shipper/Exporter"
-              placeholder="China Coast Freight co., ltd Tianjin Branchunt M,"
-              textValue={setShipper}
+              datas={companies.map((data) => data.name)}
+              placeholder={companies[0].name}
+              textValue={shipper.name}
+              setTextValue={(index) => setShipper(companies[index])}
             />
             <DefDropDown
               label="Port of Discharge"
-              datas={port_of_discharge}
-              placeholder={port_of_discharge[0]}
-              textValue={setPortDischarge}
+              datas={ports.map((data) => data.name)}
+              placeholder={ports[0].name}
+              textValue={portDischarge.name}
+              setTextValue={(index) => setPortDischarge(ports[index])}
             />
             <DefDropDown
               label="Port of Delivery"
-              datas={port_of_delivery}
-              placeholder={port_of_delivery[0]}
-              textValue={setPortDelivery}
+              datas={ports.map((data) => data.name)}
+              placeholder={ports[0].name}
+              textValue={portDelivery.name}
+              setTextValue={(index) => setPortDelivery(ports[index])}
             />
             <DefDropDown
               label="Port of Loading"
-              datas={port_of_loading}
-              placeholder={port_of_loading[0]}
-              textValue={setPortLoading}
+              datas={ports.map((data) => data.name)}
+              placeholder={ports[0].name}
+              textValue={portLoading.name}
+              setTextValue={(index) => setPortLoading(ports[index])}
             />
           </div>
         </div>
         <div className="space-y-8">
           <p className="text-3xl text-black font-bold">Detail Container</p>
           <div className="space-y-8">
-            {count.map((index) => (
-              <Container index={index} />
+            {containers.map((container, index) => (
+              <Container
+                key={index}
+                index={index}
+                container={container}
+                changeContainer={(key, value) =>
+                  changeContainer(index, key, value)
+                }
+              />
             ))}
           </div>
         </div>
@@ -130,34 +186,3 @@ export default function create() {
     </div>
   );
 }
-
-const shipping_agency = [
-  "Korean Marine Transport",
-  "Sarana Trans Asia",
-  "Tri Marina Globanusa",
-  "Samudera Jaya Makmur",
-];
-const port_of_discharge = [
-  "Jakarta, Java, Indonesia",
-  "Banten, Java, Indonesia",
-  "Lampung, Sumatera, Indonesia",
-  "Kepulauan Riau, Sumatera, Indonesia",
-];
-const port_of_delivery = [
-  "Jakarta, Java, Indonesia",
-  "Banten, Java, Indonesia",
-  "Lampung, Sumatera, Indonesia",
-  "Kepulauan Riau, Sumatera, Indonesia",
-];
-const port_of_loading = [
-  "Guangzhou, China",
-  "Xingang, China",
-  "Pasir Panjang, Singapore",
-  "Hong Kong, China",
-];
-const depo_name = [
-  "PT Segara Pasific Maju (SPM)",
-  "PT. Bina Sinar Amity (BSA)",
-  "PT. Dunia Express (DUNEX)",
-  "PT. Bina Sinar Amity (BSA) - Serang",
-];
